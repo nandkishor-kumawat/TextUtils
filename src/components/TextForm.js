@@ -15,7 +15,10 @@ export default function TextForm(props) {
     }
 
     const toCapitalized = () => {
-
+        let lowerCase = text.toLowerCase();
+        let regex = /([^.!?]+[!?.\d\s]+)/g;
+        let sentences = lowerCase.match(regex);
+        console.log(sentences)
     }
 
     const clearText = () => setText("");
