@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 export default function Navbar(props) {
     return (
         <>
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+            <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
                 <div className="container-fluid">
                     <Link className="navbar-brand" to="/">{props.heading}</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,7 +19,10 @@ export default function Navbar(props) {
                                 <Link className="nav-link" to="/about">about</Link>
                             </li>
                         </ul>
-
+                        <div className={`form-check form-switch text-${props.mode === 'light'?'dark':'light'}`}>
+                            <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" onClick={props.toggleMode}/>
+                            <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Enable Dark Mode</label>
+                        </div>
                     </div>
                 </div>
             </nav>
